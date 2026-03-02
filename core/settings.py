@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-x4252&_q_#de65-!v8m1x*s!&sybq!el_i9y*wiha5i-sv$0=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-recipe-project.onrender.com']
+ALLOWED_HOSTS = [
+    "django-recipe-project.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
 # Application definition
@@ -125,9 +129,9 @@ import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRs = {
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'public/static')
-}
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
