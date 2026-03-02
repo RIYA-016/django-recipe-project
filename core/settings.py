@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x4252&_q_#de65-!v8m1x*s!&sybq!el_i9y*wiha5i-sv$0=&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "django-recipe-project.onrender.com",
