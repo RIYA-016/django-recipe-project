@@ -16,24 +16,33 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect
+
 from home.views import *
 from vege.views import *
-from django.conf.urls.static import static
+
 from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('', home, name="home"),
+    path('', lambda request: redirect('recipes')),
+
     path('recipes/', recipes, name="recipes"),
     path('delete_recipe/<id>/', delete_recipe, name="delete_recipe"),
     path('update_recipe/<id>/', update_recipe, name="update_recipe"),
-    path('success-page',success_page, name="sucess-page"),
-    path('about/',about, name="sAbout"),
-    path('contact/',contact, name="contact"),
+
+    path('success-page', success_page, name="sucess-page"),
+    path('about/', about, name="sAbout"),
+    path('contact/', contact, name="contact"),
+
     path('admin/', admin.site.urls),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
+# MEDIA FILES
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
